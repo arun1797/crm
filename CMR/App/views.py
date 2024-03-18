@@ -6,7 +6,7 @@ def CMR_home(request):
     return render(request,"CMR_Home.html")
 
 def CMR_dashboard(request):
-    return render(request,"CMR_dashboard.html")
+    return render(request,"d.html")
 
 def CMR_archive(request):
     return render(request,"archive.html")
