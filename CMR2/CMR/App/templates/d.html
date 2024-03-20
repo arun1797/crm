@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
+    font-family: Arial, sans-serif;
+    /* background-image: linear-gradient(to right,aliceblue,rgb(153, 187, 191)); */
+  }
+
+  .header {
+    background-color: #20283E;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+
+  }
+
+  .navbar {
+    width: 200px;
+    background-color: #20283E;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 22%;
+  }
+
+  .navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar li {
+    text-align: left;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+  }
+
+  .navbar a:hover {
+    border-radius: 10px;
+    background-color: #555;
+  }
+
+  .content {
+    margin-left: 200px;
+    /* Same width as the navbar */
+    padding: 20px;
+  }
+
+  /* Responsive layout - when the screen is less than 600px wide, hide the navbar and show the content */
+  @media screen and (max-width: 600px) {
+    .navbar {
+      width: 100%;
+      height: auto;
+      position: static;
+    }
+
+    .content {
+      margin-left: 0;
+    }
+  }
+
+  #card {
+    /* width: 14rem; */
+    transition: transform 0.3s ease;
+    margin: auto;
+  }
+
+  #card:hover {
+    transform: scale(1.1) translateZ(50px);
+  }
+
+
+  /* ****** */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    color: black;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  th,
+  td {
+    border: 1px solid slategray;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #20283E;
+    color: #fff;
+  }
+
+  tr {
+    background-color: aquamarine(179, 174, 174, 0.895);
+  }
+
+  tr:hover {
+    background-color: darkgray;
+  }
+</style>
+
+<body>
+  <div class="navbar">
+    <div class="navbar-content">
+      <ul cla>
+        <li><a href="{% url 'CMR_home' %}"><i class="bi bi-house-check-fill"></i> Home</a></li>
+        <li><a href="{% url 'CMR_dashboard' %}"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a href="#"><i class="bi bi-person-circle"></i> Profile</a></li>
+        <li><a href="#"><i class="bi bi-file-earmark-person"></i> About</a></li>
+        <li><a href="#"><i class="bi bi-gear"></i> Settings</a></li>
+        <li><a href="#"><i class="bi bi-person-lines-fill"></i> Contact</a></li>
+        <li><a href="{% url 'CMR_archive'%}"><i class="bi bi-archive"></i> Archive</a></li>
+        <li><a href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="header">
+    <h1>Dash Board</h1>
+
+  </div>
+
+  <div class="content">
+    <!-- Your content goes here -->
+    <h2 class="mt-4"></h2>
+    <div class="container text-center mt-4">
+      <div class="row">
+        <div class="col">
+          <div class="card" id="card" style="width: 14rem;">
+            <div class="card-body">
+              <img
+                src="https://media.istockphoto.com/id/1186939091/vector/growth-arrow-icon-in-flat-style-revenue-vector-illustration-on-white-isolated-background.jpg?s=612x612&w=0&k=20&c=6TRe3ZAEdxMZpbPO8wu1DsKRoejeXBSPj91KPfgbBmY="
+                width="70px" height="70px" alt="" style="margin-right: 150px;">
+              <h5 class="card-title" style="color: green; text-align: right;">Revenue</h5>
+
+              <h5 class="card-text" style="color: lightslategrey;text-align: right;">$654</h5>
+
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" id="card" style="width: 14rem;">
+            <div class="card-body">
+              <img
+                src="https://thumbs.dreamstime.com/b/sales-growth-graph-hand-drawing-marker-transparent-wipe-board-92307566.jpg"
+                width="70px" height="70px" alt="" style="margin-right: 150px;">
+              <h5 class="card-title" style="color: orange; text-align: right;">Sales</h5>
+
+              <h5 class="card-text" style="color: lightslategrey;text-align: right;">5500</h5>
+
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" id="card" style="width: 14rem;">
+            <div class="card-body">
+              <img
+                src="https://media.istockphoto.com/id/1284067597/vector/bill-icon-vector-design-trendy.jpg?s=612x612&w=0&k=20&c=KVbUt3tk5kih3vsV8vj4SgJIHm61QCIGPUtIP1X_MFg="
+                width="70px" height="70px" alt="" style="margin-right: 150px;">
+              <h5 class="card-title" style="color: red; text-align: right;">Orders</h5>
+
+              <h5 class="card-text" style="color: lightslategrey;text-align: right;">3300</h5>
+
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" id="card" style="width: 14rem;">
+            <div class="card-body">
+              <img
+                src="https://png.pngtree.com/png-vector/20190316/ourmid/pngtree-employee-icon-design-template-vector-isolated-png-image_856368.jpg"
+                width="70px" height="70px" alt="" style="margin-right: 150px;">
+              <h5 class="card-title" style="color: darkred; text-align: right;">Employees</h5>
+
+              <h5 class="card-text" style="color: lightslategrey;text-align: right;">1489</h5>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ****** -->
+
+
+
+    <!-- *********** -->
+    <div class="container mt-5" style="display: flex;flex-direction: row;align-items: center;">
+      <div class="" style="flex: 1;padding: 20px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Pushkin_population_history.svg" class="img-fluid"
+          alt="">
+      </div>
+      <div class="image" style="flex: 1;padding: 20px;text-align: center; ">
+        <img src="https://apexcharts.com/wp-content/uploads/2018/05/basic-bar-chart.svg" class="img-fluid" alt="">
+      </div>
+      <div class="image" style="flex: 1;padding: 20px;text-align: center; ">
+        <img src="https://cdn.pixabay.com/photo/2016/09/03/14/35/algorithms-1641857_1280.png" class="img-fluid"
+          width="300px" height="300px" alt="">
+      </div>
+    </div>
+
+    <!-- ************ -->
+    <div class="container px-4 py-4" id="featured-3">
+      <h2 class="pb-2 border-bottom" style="color:blue;">This Month Stars</h2>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+          <div class="feature-icon d-inline-flex align-items-center justify-content-center  bg-gradient fs-2 mb-3">
+            <img src="https://kidzartworx.com.au/wp-content/uploads/2017/01/circle-man.png" height="100px" alt="">
+          </div>
+          <h3 class="fs-2 text-body-emphasis">H Vinoth</h3>
+          <h5 style="color:blueviolet;">Web Developer</h5>
+          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and
+            probably just keep going until we run out of words.</p>
+        </div>
+        <div class="feature col">
+          <div class="feature-icon d-inline-flex align-items-center justify-content-center  bg-gradient fs-2 mb-3">
+            <img
+              src="https://i1.wp.com/radialcircle.com/wp-content/uploads/2017/02/avatar-round-1.png?fit=364%2C364&ssl=1"
+              height="100px" alt="">
+          </div>
+          <h3 class="fs-2 text-body-emphasis">Abirami Ramesh</h3>
+          <h5 style="color:blueviolet;">Digital Marketing</h5>
+          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and
+            probably just keep going until we run out of words.</p>
+        </div>
+        <div class="feature col">
+          <div class="feature-icon d-inline-flex align-items-center justify-content-center  bg-gradient fs-2 mb-3">
+            <img src="https://tricky-photoshop.com/wp-content/uploads/2017/08/final-1.png" height="100px" alt="">
+          </div>
+          <h3 class="fs-2 text-body-emphasis">Vetrimaran</h3>
+          <h5 style="color:blueviolet;">Web Designer</h5>
+          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and
+            probably just keep going until we run out of words.</p>
+        </div>
+      </div>
+    </div>
+    <!-- ******** -->
+
+
+    <h4 style="text-align: left;">Dashboard Table</h4>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Arun</td>
+            <td>Front end Developer</td>
+            <td>arun123@gmail.com</td>
+            <td>Junior Developer</td>
+            <td style="text-align: center;"><a href=""><i class="bi bi-pencil-square"></i></a> <a href=""><i
+                  class="bi bi-trash3"></i></a></td>
+          </tr>
+          <tr>
+            <td>Rajesh</td>
+            <td>Web Designer</td>
+            <td>rajesh123@gmail.com</td>
+            <td>Designer</td>
+            <td style="text-align: center;"><a href=""><i class="bi bi-pencil-square"></i></a> <a href=""><i
+                  class="bi bi-trash3"></i></a></td>
+          </tr>
+          <tr>
+            <td>Nambi</td>
+            <td>Digital Marketing</td>
+            <td>nambi123@gmail.com</td>
+            <td>Marketing</td>
+            <td style="text-align: center;"><a href=""><i class="bi bi-pencil-square"></i></a> <a href=""><i
+                  class="bi bi-trash3"></i></a></td>
+          </tr>
+          <tr>
+            <td>Gopi</td>
+            <td>BackEnd Developer</td>
+            <td>gopi123@gmail.com</td>
+            <td>junior Developer</td>
+            <td style="text-align: center;"><a href=""><i class="bi bi-pencil-square"></i></a> <a href=""><i
+                  class="bi bi-trash3"></i></a></td>
+          </tr>
+          <tr>
+            <td>Arul</td>
+            <td>Admin</td>
+            <td>arul123@gmail.com</td>
+            <td>Hr</td>
+            <td style="text-align: center;"><a href=""><i class="bi bi-pencil-square"></i></a> <a href=""><i
+                  class="bi bi-trash3"></i></a></td>
+          </tr>
+          <tr>
+            <td>Abirami</td>
+            <td>Automation Testing</td>
+            <td>abirami123@gmail.com</td>
+            <td>Testing</td>
+            <td style="text-align: center;"><a href=""><i class="bi bi-pencil-square"></i></a> <a href=""><i
+                  class="bi bi-trash3"></i></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- ************* -->
+
+
+
+    <!-- ********** -->
+    <!-- <div class="container">
+            <div class="message mt-3" id="message1">
+                <img src="https://i1.wp.com/radialcircle.com/wp-content/uploads/2017/02/avatar-round-1.png?fit=364%2C364&ssl=1" height="50" alt="">
+                <label>Message 1</label>
+                <button class="btn btn-primary ml-auto" onclick="archiveMessage('message1')">Archive</button>
+            </div>
+            <div class="message mt-3" id="message2">
+                <img src="https://www.seekpng.com/png/full/627-6279537_circle-invest-welcomes-monero-portrait-circle.png" height="50" alt="">
+                <label>Message 2</label>
+                <button class="btn btn-primary ml-auto" onclick="archiveMessage('message2')">Archive</button>
+            </div>
+            <div class="message mt-3" id="message3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Walker_Circle.png" height="50" alt="">
+                <label>Message 3</label>
+                <button class="btn btn-primary ml-auto" onclick="archiveMessage('message3')">Archive</button>
+            </div>
+        
+        
+            <div id="messageContainer"></div>
+            
+            <h2 id="archiveHeading" class="mt-4">Archived Messages</h2>
+            
+            <a href="{% url 'CMR_archive' %}" class="btn btn-warning mt-4">View Archived Messages</a>
+        </div>
+        
+        <script>
+            var allMessages = {
+                message1: {
+                    content: "Message 1",
+                    imageUrl: "https://i1.wp.com/radialcircle.com/wp-content/uploads/2017/02/avatar-round-1.png?fit=364%2C364&ssl=1"
+                },
+                message2: {
+                    content: "Message 2",
+                    imageUrl: "https://www.seekpng.com/png/full/627-6279537_circle-invest-welcomes-monero-portrait-circle.png"
+                },
+                message3: {
+                    content: "Message 3",
+                    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Walker_Circle.png"
+                },
+            
+            };
+        
+            var archivedMessages = JSON.parse(localStorage.getItem('archivedMessages')) || {};
+            function removeArchivedMessages() {
+                    for (var messageId in archivedMessages) {
+                        var messageDiv = document.getElementById(messageId);
+                        if (messageDiv) {
+                            messageDiv.remove();
+                        }
+                    }
+                }
+        
+        
+            function archiveMessage(messageId) {
+                var message = allMessages[messageId];
+                var messageDiv = document.getElementById(messageId);
+                messageDiv.remove(); 
+                var messageContainer = document.getElementById('messageContainer');
+                messageContainer.style.display = 'block';
+                messageContainer.innerText = 'Message archived: ' + message.content;
+        
+                archivedMessages[messageId] = message;
+                localStorage.setItem('archivedMessages', JSON.stringify(archivedMessages));
+            }
+        
+            function undoArchive() {
+                var messageContainer = document.getElementById('messageContainer');
+                messageContainer.style.display = 'none';
+        
+                for (var messageId in archivedMessages) {
+                    var messageDiv = document.createElement('div');
+                    var message = archivedMessages[messageId];
+                    messageDiv.classList.add('message', 'mt-3');
+                    messageDiv.id = messageId;
+                    var img = document.createElement('img');
+                    img.src = message.imageUrl;
+                    img.alt = 'Message Image';
+                    img.height = 50;
+                    var label = document.createElement('label');
+                    label.textContent = message.content;
+                    var button = document.createElement('button');
+                    button.classList.add('btn', 'btn-primary', 'ml-auto');
+                    button.textContent = 'Archive';
+                    button.onclick = function() {
+                        archiveMessage(messageId);
+                    };
+                    messageDiv.appendChild(img);
+                    messageDiv.appendChild(label);
+                    messageDiv.appendChild(button);
+                    document.querySelector('.container').appendChild(messageDiv);
+                }
+        
+                archivedMessages = {};
+                localStorage.removeItem('archivedMessages');
+            }
+        </script> -->
+
+    <!-- ************************************************************************* -->
+
+    <!-- <script>
+      function starts_drag(event) {
+        event.dataTransfer.setData("Text", event.target.id);
+        document.getElementById("demo").innerHTML = "Dragging to Archive ";
+      }
+
+      function end_drag(event) {
+        document.getElementById("demo").innerHTML = "Dragging Successfully";
+      }
+
+      function drop_allow(event) {
+        event.preventDefault();
+      }
+
+      function drop_event(event) {
+        event.preventDefault();
+        var data = event.dataTransfer.getData("Text");
+        var droppedElement = document.getElementById(data);
+        localStorage.setItem(data, droppedElement.outerHTML);
+        event.target.appendChild(droppedElement);
+      }
+    </script>
+    <div class="container text-center mt-5 mb-5">
+      <div class="row">
+        <div class="col" ondrop="drop_event(event)" ondragover="drop_allow(event)">
+          <div class="card" style="width: 14rem;padding-top: 10px;" ondragstart="starts_drag(event)"
+            ondragend="end_drag(event)" draggable="true" id="a1">
+            <img src="https://www.vhv.rs/dpng/d/551-5511364_circle-profile-man-hd-png-download.png" width="50px"
+              height="50px" style="margin-right: 150px;">
+            <h5 style="text-align: left;padding-left: 10px;">Jose</h5>
+            <p style="text-align: left;padding-left: 10px;">Messages <i class="bi bi-bell text-danger"></i></p>
+            <span><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+
+          </div>
+        </div>
+
+        <div class="col" ondrop="drop_event(event)" ondragover="drop_allow(event)">
+          <div class="card" style="width: 14rem;padding-top: 10px;" ondragstart="starts_drag(event)"
+            ondragend="end_drag(event)" draggable="true" id="a2">
+            <img src="https://www.pikpng.com/pngl/m/355-3555383_circle-profile-picture-clipart.png" width="50px"
+              height="50px" style="margin-right: 150px;">
+            <h5 style="text-align: left;padding-left: 10px;">Manisha</h5>
+            <p style="text-align: left;padding-left: 10px;">Message <i class="bi bi-bell text-danger"></i></p>
+            <span><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+
+          </div>
+        </div>
+        <div class="col" ondrop="drop_event(event)" ondragover="drop_allow(event)">
+          <div class="card" style="width: 14rem;padding-top: 10px;" ondragstart="starts_drag(event)"
+            ondragend="end_drag(event)" draggable="true" id="a3">
+            <img src="https://image.pngaaa.com/877/4877877-middle.png" width="50px" height="50px"
+              style="margin-right: 150px;">
+            <h5 style="text-align: left;padding-left: 10px;">Shiju</h5>
+            <p style="text-align: left;padding-left: 10px;">Message <i class="bi bi-bell text-danger"></i></p>
+            <span><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                class="bi bi-star-half"></i><i class="bi bi-star"></i></span>
+          </div>
+        </div>
+
+        <div class="col" ondrop="drop_event(event)" ondragover="drop_allow(event)">
+          <div class="card" style="width: 14rem;padding-top: 10px;" ondragstart="starts_drag(event)"
+            ondragend="end_drag(event)" draggable="true" id="a4">
+            <img
+              src="https://www.pngfind.com/pngs/m/488-4887957_facebook-teerasej-profile-ball-circle-circular-profile-picture.png"
+              width="50px" height="50px" style="margin-right: 150px;">
+            <h5 style="text-align: left;padding-left: 10px;">Cristofer</h5>
+            <p style="text-align: left;padding-left: 10px;">Message <i class="bi bi-bell text-danger"></i></p>
+            <span><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i
+                class="bi bi-star"></i><i class="bi bi-star"></i></span>
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+    <h4>Drag to Achive</h4>
+    <div class="drag" ondrop="drop_event(event)" ondragover="drop_allow(event)"
+      style="width: 16rem;height: 300px;overflow: scroll;background-color: #c2b8b8;">
+    </div>
+
+    <p id="demo"></p> -->
+    <!-- ************************ -->
+    <div class="container text-center mt-5 mb-5">
+      <div class="row" id="gridContainer">
+        <div class="col" id="grid-col">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center mt-5 mb-5">
+      <div class="row">
+        <div class="col">
+          <h2>Archived Items</h2>
+          <div id="archiveList"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const gridContainer = document.getElementById('gridContainer');
+        const gridContainercol = document.getElementById('grid-col');
+
+        const archiveList = document.getElementById('archiveList');
+
+        const dataList = [
+          { id: 1, name: 'John Doe', gender: 'male', image: 'https://www.vhv.rs/dpng/d/551-5511364_circle-profile-man-hd-png-download.png' },
+          { id: 2, name: 'Jane Smith', gender: 'male', image: 'https://www.pngfind.com/pngs/m/488-4887957_facebook-teerasej-profile-ball-circle-circular-profile-picture.png' },
+          { id: 3, name: 'Mike Johnson', gender: 'male', image: 'https://www.pngfind.com/pngs/m/488-4887957_facebook-teerasej-profile-ball-circle-circular-profile-picture.png' }
+        ];
+
+        function createGridItems() {
+
+          dataList.forEach(item => {
+            const gridItem = document.createElement('div');
+            gridItem.classList.add('card');
+            gridItem.innerHTML = `
+<img src=${item.image} width="50px"
+    height="50px" style="margin-right: 150px;">
+  <h3  style="text-align: left; padding-left: 10px;" >${item.name}</h3>
+  <p style="text-align: left; padding-left: 10px;">Age: ${item.gender} <i class="bi bi-bell text-danger"></i></p>
+  <span><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+    <i class="bi bi-star-fill"></i>
+    <i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+  <!-- Add archive button -->
+  <button class="btn btn-primary archive-btn mt-2">Archive</button>
+`
+              ;
+            gridContainercol.appendChild(gridItem);
+          });
+        }
+
+
+        createGridItems();
+
+        loadArchivedItems();
+
+        gridContainer.addEventListener('click', function (event) {
+          if (event.target.classList.contains('archive-btn')) {
+            const gridItem = event.target.closest('.card');
+            archiveItem(gridItem);
+          }
+        });
+
+        // Function to archive an item
+        function archiveItem(item) {
+          const archivedItem = document.createElement('div');
+          archivedItem.classList.add('archive-item');
+          archivedItem.innerHTML = item.innerHTML;
+          const unarchiveBtn = document.createElement('button');
+          unarchiveBtn.textContent = 'Unarchive';
+          unarchiveBtn.classList.add('unarchive-btn', 'btn', 'btn-primary', 'mt-2');
+          archivedItem.appendChild(unarchiveBtn);
+          if (archiveList.innerHTML != item.innerHTML) {
+            archiveList.appendChild(archivedItem);
+          }
+          item.remove();
+          saveArchivedItems();
+        }
+
+        function saveArchivedItems() {
+          const archivedItems = Array.from(archiveList.children).map(item => item.innerHTML);
+          localStorage.setItem('archivedItems', JSON.stringify(archivedItems));
+        }
+
+
+
+        function loadArchivedItems() {
+          const archivedItems = JSON.parse(localStorage.getItem('archivedItems')) || [];
+          archivedItems.forEach(itemHTML => {
+            const archivedItem = document.createElement('div');
+            archivedItem.classList.add('archive-item');
+            archivedItem.innerHTML = itemHTML;
+            const unarchiveBtn = document.createElement('button');
+            unarchiveBtn.textContent = 'Unarchive';
+            unarchiveBtn.classList.add('unarchive-btn', 'btn', 'btn-primary', 'mt-2');
+            archivedItem.appendChild(unarchiveBtn);
+            archiveList.appendChild(archivedItem);
+          });
+        }
+
+        function unarchiveItem(item) {
+          const gridItem = document.createElement('div');
+          gridItem.classList.add('card');
+          gridItem.innerHTML = item.innerHTML;
+          const archiveBtn = document.createElement('button');
+          archiveBtn.textContent = 'Archive';
+          archiveBtn.classList.add('archive-btn', 'btn', 'btn-secondary', 'mt-2');
+          gridItem.appendChild(archiveBtn);
+          gridContainer.appendChild(gridItem);
+          item.remove();
+          saveArchivedItems();
+        }
+        archiveList.addEventListener('click', function (event) {
+          if (event.target.classList.contains('unarchive-btn')) {
+            const archiveItem = event.target.closest('.archive-item');
+            unarchiveItem(archiveItem);
+          }
+        });
+      });
+    </script>
+
+
+  </div>
+</body>
+
+</html>

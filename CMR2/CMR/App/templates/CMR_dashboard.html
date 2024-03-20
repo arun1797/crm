@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <title>ondragend Event Attribute</title>
+    <style>
+        .box {
+            width: 30%;
+            height: 200px;
+            margin: 20px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        
+        .card {
+            width: 30%;
+            height: 200px;
+            margin: 20px;
+            border: 1px solid black;
+            text-align: center;
+            overflow: scroll;
+        }
+    </style>
+    <script>
+
+        /* Function to start dragging */
+        function starts_drag(event) {
+            event.dataTransfer.
+                setData("Text", event.target.id);
+            document.getElementById("demo").innerHTML =
+                "Dragging is in work";
+        }
+
+        /* Function to stop dragging */
+        function end_drag(event) {
+            document.getElementById("demo").innerHTML =
+                "Dragging works properly";
+        }
+        /* Function to allow drop content */
+        function drop_allow(event) {
+            event.preventDefault();
+        }
+
+        /* Function to drop the content */
+        function drop_event(event) {
+            event.preventDefault();
+            var data =
+                event.dataTransfer.getData("Text");
+            event.target.
+                appendChild(document.getElementById(data));
+        }
+    </script>
+
+    <!-- ondragend event starts from here -->
+    <div class="box" ondrop="drop_event(event)" ondragover="drop_allow(event)">
+        <div ondragstart="starts_drag(event)" ondragend="end_drag(event)" draggable="true" id="a1">
+            <div >
+                <img src="https://www.vhv.rs/dpng/d/551-5511364_circle-profile-man-hd-png-download.png" width="50px"
+                  height="50px" style="margin-right: 150px;">
+                <br>
+                <h5 style="text-align: left;padding-left: 10px;">Jose</h5>
+                <p style="text-align: left;padding-left: 10px;">Messages <i class="bi bi-bell text-danger"></i></p>
+                <span><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span>
+              </div>
+        </div>
+    </div>
+    <div class="box" ondrop="drop_event(event)" ondragover="drop_allow(event)">
+        <div ondragstart="starts_drag(event)" ondragend="end_drag(event)" draggable="true" id="a2">
+            <div>
+                <img
+                  src="https://www.pngfind.com/pngs/m/488-4887957_facebook-teerasej-profile-ball-circle-circular-profile-picture.png"
+                  width="50px" height="50px" style="margin-right: 150px;">
+                <h5 style="text-align: left;padding-left: 10px;">Cristofer</h5>
+                <p style="text-align: left;padding-left: 10px;">Message <i class="bi bi-bell text-danger"></i></p>
+                <span><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i
+                    class="bi bi-star"></i><i class="bi bi-star"></i></span>
+              </div>
+        </div>
+    </div>
+    <div class="box" ondrop="drop_event(event)" ondragover="drop_allow(event)">
+        <div ondragstart="starts_drag(event)" ondragend="end_drag(event)" draggable="true" id="a3">
+            <div>
+                <img src="https://image.pngaaa.com/877/4877877-middle.png" width="50px" height="50px"
+                  style="margin-right: 150px;">
+                <h5 style="text-align: left;padding-left: 10px;">Shiju</h5>
+                <p style="text-align: left;padding-left: 10px;">Message <i class="bi bi-bell text-danger"></i></p>
+                <span><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-half"></i><i class="bi bi-star"></i></span>
+              </div>
+        </div>
+    </div>
+    <div class="card" ondrop="drop_event(event)" ondragover="drop_allow(event)">
+    </div>
+
+    <!-- ondragend event complete here -->
+    <p id="demo"></p>
+</body>
+
+</html>
