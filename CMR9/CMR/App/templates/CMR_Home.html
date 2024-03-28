@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>CRM Home</title>
+</head>
+<style>
+    .hero {
+        text-align: center;
+        padding: 50px 0;
+        background-color: #ffffff;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px 0;
+        color: black;
+        /* position: absolute; */
+        bottom: 0;
+        width: 100%;
+    }
+
+    footer p {
+        margin-bottom: 10px;
+    }
+
+    footer a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .features {
+        padding: 3% 0;
+    }
+
+    .content h4 {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .content {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        /* width: 14rem; */
+        transition: transform 0.3s ease;
+        /* Add transition effect on transform */
+    }
+
+    .card:hover {
+        transform: scale(1.1) translateZ(50px);
+        background-color: rgba(0, 0, 0, 0.1);
+        /* Increase size of the card on hover */
+    }
+
+    .c {
+        width: 90%;
+        /* Adjust as needed */
+        text-align: center;
+        animation: colorChange 3s infinite alternate;
+        /* Animation for font color */
+    }
+
+    @keyframes colorChange {
+        0% {
+            color: blueviolet;
+        }
+
+        25% {
+            color: deeppink;
+        }
+
+        50% {
+            color: navy;
+        }
+
+        75% {
+            color: chartreuse;
+        }
+
+        100% {
+            color: chocolate;
+        }
+    }
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color:#ccc;
+        color: darkred;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+</style>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-warning-subtle">
+        <div class="container dropdown ">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                CRM
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Finance</a></li>
+                <li><a class="dropdown-item" href="#">Sales</a></li>
+                <li><a class="dropdown-item" href="#">Marketing</a></li>
+                <li><a class="dropdown-item" href="#">Website</a></li>
+                <li><a class="dropdown-item" href="#">Service</a></li>
+                <li><a class="dropdown-item" href="#">Productivity</a></li>
+                <li><a class="dropdown-item" href="#">Human Resource</a></li>
+            </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'CMR_home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'CMR_dashboard' %}">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- ********** -->
+    <!-- <div class="container mt-4">
+        <marquee behavior="" direction="right"><h1>Welcome CRM</h1></marquee>
+    </div> -->
+    <div class="container">
+        <section class="hero">
+            <h1 style="color: darkred;">Welcome To Our CRM</h1>
+            <p class="mt-4">An easy-to-use solution for managing customer relationships.</p>
+            <a href="#"><button class="btn " style="background-color:coral;">Get Started</button></a>
+        </section>
+    </div>
+    <!-- ******************** -->
+    <div class="container text-center ">
+        <div style="padding-bottom: 8px;padding-top: 5px;margin-left: 15%;margin-right: 15%;" class="mb-5">
+            <h1 class="text-center" style="font-family: monospace;font-weight: bolder;">Conversational CRM Interacts
+                without You</h1>
+            <h2 style="animation: colorChange 5s infinite alternate;font-family: cursive;" class="c text-center">
+                Powered by AI</h2>
+        </div>
+        <div class="container text-center mt-4">
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://www.freeiconspng.com/thumbs/message-icon-png/message-icon-png-17.png"
+                                width="70px" height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Sales</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>CRM</b></h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl2mMMMPiJLbylpUu03bkXOy0eqjpx_bWcWA&usqp=CAU"
+                                width="70px" height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Supprot</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Ticketing</b></h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://cdn-icons-png.freepik.com/256/2098/2098402.png" width="70px" height="70px"
+                                alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Task</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Management</b>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://png.pngtree.com/png-clipart/20230920/original/pngtree-vector-recruitment-icon-for-business-and-corporate-projects-vector-png-image_12465585.png"
+                                width="70px" height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Hiring</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Management</b>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/000/439/792/small/Basic_Ui__28178_29.jpg"
+                                width="70px" height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Project</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Management</b>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container text-center mt-4">
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://i.pinimg.com/736x/bc/9b/20/bc9b206f94a8a0421bc32b3c0b17811e.jpg"
+                                width="70px" height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Omni Channel</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Chatbots</b></h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://cdn3.iconfinder.com/data/icons/flat-icons-web/40/Refresh-512.png"
+                                width="70px" height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Process</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Automation</b>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://cdn-icons-png.flaticon.com/512/6387/6387898.png" width="70px"
+                                height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Multiple Chat</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Team inbox</b>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQknxUTLijG8EwPW0aJSCiAnVQ4boH0efTerJLArFd_EIqQq1NyHsh0PPKX0tOAJUQds1U&usqp=CAU"
+                                width="70px" height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">2Way Whatsapp</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Integration</b>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://thumbs.dreamstime.com/b/cell-phone-icon-simple-illustration-123949952.jpg"
+                                width="70px" height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Call Tracking from</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;">Android Phones</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container text-center mt-4">
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://media.dailythanthi.com/h-upload/2023/04/07/1225826-speeker3.jpg"
+                                width="70px" height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Bulk</h5>
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Broadcaster</b>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://cdn.pixabay.com/photo/2016/06/13/17/30/mail-1454734_640.png" width="70px"
+                                height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Email</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Integration</b>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://cdn-icons-png.freepik.com/512/3176/3176322.png" width="70px" height="70px"
+                                alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Email</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Builder</b>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://cdn-icons-png.freepik.com/512/7339/7339743.png" width="70px" height="70px"
+                                alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">InBuilt</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Genrative AI</b>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 14rem;">
+                        <div class="card-body">
+                            <img src="https://www.dudeme.in/cdn/shop/files/Frame11753.jpg?v=1686203871" width="70px"
+                                height="70px" alt="" style="margin-right: 150px;">
+                            <h5 class="card-title" style=" text-align: right;">Chat GPT</h5>
+
+                            <h5 class="card-text" style="color: lightslategrey;text-align: right;"><b>Integration</b>
+                            </h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ************* -->
+
+    <div class="container mt-5 text-center">
+        <img src="https://storage.builderall.com//franquias/2/73748/editor-html/11931101.png" class="img-fluid"
+            width="50%" height="50%" alt="" style="border-radius: 15px;">
+        <h3 class="text-center mt-4" style="font-family: Cursive;color: darkred;font-weight: bolder;"><span
+                style="animation: colorChange 5s infinite alternate;font-family: cursive;">AI</span> at your fingertips.
+        </h3>
+        <p style="padding-left: 20%;padding-right: 20%;">Builderall utilizes state of the art OpenAI integration to
+            bring you Magic Text AI, our revolutionary content
+            creation tool available on our website builder, email tools, and soon across all the Builderall platform</p>
+        <div class="text-center mt-4">
+            <button class="btn" style="background-color:blueviolet;height: 60px;font-weight: bolder;color: #ffffff;">See
+                Over 25 Tools you have available with Builderall</button>
+        </div>
+    </div>
+
+
+
+    <!-- ********** -->
+    <!-- <div class="container text-center mt-4">
+        <h2 style="font-style: italic;"><u>Key Features</u></h2>
+    </div>
+    <div class="container mt-4" style="background-color:rgb(179, 199, 237);border-radius: 50%;">
+        <section class="features">
+
+            <div class="content mt-2">
+                <h4>Customer Management</h4>
+                <p>Efficiently organize and track customer interactions.</p>
+            </div>
+            <div class="content">
+                <h4>Analytics</h4>
+                <p>Gain valuable insights into your business performance.</p>
+            </div>
+            <div class="content">
+                <h4>Task Management</h4>
+                <p>Create and assign tasks to team members with ease.</p>
+            </div>
+            <div class="content">
+                <a href="#"><button class="btn" style="background-color: darkred; color: white;">Trail-For Free
+                    </button></a>
+            </div>
+        </section>
+    </div> -->
+    <!-- *** -->
+    <div class="container mt-4" style="display: flex;flex-direction: row;align-items: center;">
+        <div class="" style="flex: 1;padding: 20px;">
+            <h2 style="color: darkred;">Every user should follow operations</h2>
+            <ol>
+                <li>Create a customer</li>
+                <li>Read the customer details</li>
+                <li>Update customer details</li>
+                <li>Delete a customer</li>
+            </ol>
+        </div>
+        <div class="image" style="flex: 1;padding: 20px;text-align: center; ">
+            <img src="https://storage.builderall.com//franquias/2/73748/editor-html/11078665.png" class="img-fluid"
+                alt="">
+        </div>
+    </div>
+
+
+    <!-- *************** -->
+    <div class="container mt-4" style="display: flex;flex-direction: row;align-items: center;">
+
+        <div class="image" style="flex: 1;padding: 20px;text-align: center; ">
+            <img src="https://storage.builderall.com//franquias/2/73748/editor-html/11078664.png" class="img-fluid"
+                alt="">
+        </div>
+        <div class="" style="flex: 1;padding: 20px;">
+            <h2 style="color: darkred;">Connect with customers on Webinar</h2>
+            <p>Maximize the success of your next online event by driving increased engagement, viewership, and sales.
+                From customizable registration pages to live polls and Q&A sessions, we offer a range of features to
+                ensure your webinar is a complete success. </p>
+        </div>
+    </div>
+    <!-- ******** -->
+    <div class="container mt-4" style="display: flex;flex-direction: row;align-items: center;">
+        <div class="" style="flex: 1;padding: 20px;">
+            <h2 style="color: darkred;">Automate support with
+                Chatbot</h2>
+            <p>Save time and streamline your business operations by using our chatbot tool for automated customer
+                support. With our tool, you can easily handle common customer inquiries and free up your time for more
+                pressing tasks.</p>
+        </div>
+        <div class="image" style="flex: 1;padding: 20px;text-align: center; ">
+            <img src="https://storage.builderall.com//franquias/2/73748/editor-html/11078668.png" class="img-fluid"
+                alt="">
+        </div>
+    </div>
+    <!-- ************ -->
+    <div class="container mt-4" style="display: flex;flex-direction: row;align-items: center;">
+
+        <div class="image" style="flex: 1;padding: 20px;text-align: center; ">
+            <img src="https://storage.builderall.com//franquias/2/73748/editor-html/11078667.png" class="img-fluid"
+                alt="">
+        </div>
+        <div class="" style="flex: 1;padding: 20px;">
+            <h2 style="color: darkred;">Powerful built-in email platform</h2>
+            <p>Your website and emails belong together. Builderall brings your most powerful digital tools together so
+                you can create and optimize your marketing with ease.
+                <br><br>
+                Take advantage of our world class email marketing features to create the best campaigns, automations,
+                sequences, and more - all in one seamless environment.
+            </p>
+        </div>
+    </div>
+
+    <!-- *************** -->
+    <div class="container "
+        style="display: flex;flex-direction: row;align-items: center;margin-top: 5%;margin-bottom: 5%;">
+        <div class="" style="flex: 1;padding: 20px;">
+            <h2 style="color: blueviolet;"><i class="bi bi-1-circle"></i> Easy-to-use sections</h2>
+            <p>Want an accordion, carousel, and a testimonial section on your landing page? Now you can get it done in
+                seconds!
+            </p>
+            <h2 style="color: blueviolet;"><i class="bi bi-2-circle"></i></i>
+                Create once,use forever</h2>
+            <p>Create custom landing page sections for your brand and use them across your campaigns
+            </p>
+            <h2 style="color: blueviolet;"><i class="bi bi-3-circle"></i></i>
+                Compelling CTA buttons</h2>
+            <p>Call-to-action (CTA) buttons are the lifeline of any landing page. Create irresistible CTAs that drive
+                conversions</p>
+            <h2 style="color: blueviolet;"><i class="bi bi-4-circle"></i></i>
+                Conversion-friendly elements</h2>
+            <p>Build engaging forms and conversion-ready popups to turn visitors into customers.</p>
+        </div>
+        <div class="image" style="flex: 1;padding: 20px;text-align: center; ">
+            <img src="https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img/https://unbounce.com/photos/scale-your-marketing.png"
+                class="img-fluid" alt="">
+        </div>
+    </div>
+    <!-- ************ -->
+    <div class="row g-0 bg-body-secondary position-relative mt-5" style="margin-left: 20%;margin-right: 20%;">
+        <div class="col-md-6 mb-md-0 p-md-4">
+            <img src="https://www.superoffice.com/contentassets/265205ce7d06431ca499b1961e4c57c8/customer-relationships.png"
+                class="w-100" alt="...">
+        </div>
+        <div class="col-md-6 p-4 ps-md-0">
+            <h5 class="mt-0" style="color: darkred;">Details</h5>
+            <p>Another instance of placeholder content for this other custom component. It is intended to mimic what
+                some real-world content would look like, and we're using it here to give the component a bit of body and
+                size.</p>
+            <a href="#" class="stretched-link"><button class="btn" style="background-color: darkred;color: #ffffff;">Go
+                    Somewhere</button></a>
+        </div>
+    </div>
+    <!-- ***** -->
+    <h3 class="text-center mt-4" style="color: darkred;">Global success with Builderall</h3>
+    <div class="container text-center mt-4">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 14rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: darkred; text-align: left;">Reduce manual</h5>
+
+                        <p class="card-text" style="color: lightslategrey;text-align: left;">Send quotes in just a few
+                            clicks, manage your pipeline by drag-and-dropping, and more</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 14rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: darkred; text-align: left;">Enable automation</h5>
+
+                        <p class="card-text" style="color: lightslategrey;text-align: left;">Automate lead creation,
+                            team assignment and focus on what really matters.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 14rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: darkred; text-align: left;">AI lead scoring</h5>
+
+                        <p class="card-text" style="color: lightslategrey;text-align: left;">Too many leads? Our AI
+                            scores leads to ensure you always work on the right priorities.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 14rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: darkred; text-align: left;">Manage leads</h5>
+
+                        <p class="card-text" style="color: lightslategrey;text-align: left;">Create, acquire, import,
+                            nurture, score, etc. Manage all aspects in a single place.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ************* -->
+    <div class="container mt-3" style="display: flex;flex-direction: row;align-items: center;">
+        <div class="video" style="flex: 1;padding: 20px;">
+            <iframe width="400" height="250" src="https://www.youtube.com/embed/SlhESAKF1Tk"
+                title="What is CRM and How Does it Work? | Salesforce" frameborder="0" class="img-fluid"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+        <div class="content" style="flex: 1;padding: 20px;text-align: center; ">
+            <h2 style="font-family: monospace;font-weight: bolder;color: blueviolet;">Less work, more sales</h2>
+            <p>A simple yet powerful CRM for small Business Selling Picky Assist is One Stop Ready to Use All in One
+                Software Solution to Streamline & automate your Entire Business in Just 1 hour Powered by Artificial
+                Intelligence (AI)</p>
+        </div>
+    </div>
+    <div class="container text-center mt-2">
+        <button class="btn" onclick="openPopup()"
+            style="background-color: blueviolet;color: #ffffff;">Start-Learn</button>
+       
+
+        <div id="popup" class="popup">
+            <h2>Start Learn </h2>
+            <p style="color: black;">Establish certification programs that allow users to demonstrate their proficiency in using the CRM system</p>
+            <button onclick="closePopup()" class="btn" style="background-color: red;color: #ffffff;">Close</button>
+        </div>
+    </div>
+    <script>
+        function openPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+    
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+    <!-- ********************* -->
+    <!-- <div class="container mt-4">
+        <img src="https://storage.builderall.com//franquias/2/73748/editor-html/11930805.png"
+            width="100%" height="10%" alt="">
+    </div> -->
+    <!-- ************ -->
+
+
+    <footer class="bg-warning-subtle" style="margin-top: 50px;">
+        <p>&copy; 2024 CRM Company. All rights reserved.</p>
+        <nav>
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Service</a> |
+            <a href="#">FAQs</a>
+        </nav>
+        <div class="social-icons mt-3">
+            <a href="#"><img
+                    src="https://static.vecteezy.com/system/resources/thumbnails/023/986/613/small_2x/facebook-logo-facebook-logo-transparent-facebook-icon-transparent-free-free-png.png"
+                    width="40px" height="40px" alt="Facebook"></a>
+            <a href="#"><img src="https://freepngimg.com/save/62860-logo-twitter-computer-icons-free-photo-png/512x512"
+                    width="40px" height="40px" alt="Twitter"></a>
+            <a href="#"><img
+                    src="https://png.pngtree.com/png-vector/20230225/ourmid/pngtree-three-dimensional-instagram-icon-png-image_6618437.png"
+                    width="40px" height="40px" alt="Instagram"></a>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
